@@ -1,4 +1,4 @@
-const settings = {
+// const settings = {
 	"async": true,
 	"crossDomain": true,
 	"url": "https://hotels4.p.rapidapi.com/locations/v3/search?q=london&locale=en_UK&langid=1033&siteid=300000001",
@@ -27,12 +27,12 @@ $.ajax(settings).done(function (response) {
 // $.ajax(settings2).done(function (response) {
 // 	console.log(response);
 // });
-var city = "london"
-var url = "https://the-fork-the-spoon.p.rapidapi.com/locations/v2/auto-complete?text="+city
+// var city = "london"
+// var url = "https://the-fork-the-spoon.p.rapidapi.com/locations/v2/auto-complete?text="+city
 
 
 
-const settings3 = {
+// const settings3 = {
 	"async": true,
 	"crossDomain": true,
 	"url": url,
@@ -43,6 +43,6 @@ const settings3 = {
 	}
 };
 
-$.ajax(settings3).done(function (response) {
+//$.ajax(settings3).done(function (response) {
 	console.log(response);
 });
