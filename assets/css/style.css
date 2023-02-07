@@ -94,10 +94,10 @@ section.ct_icon_box_section .ct-icon_box.media .fa, .ct-icon_box.media .fa {
     margin-bottom: 0;
     float: left;
     margin-right: 1em;
+    width: 100%;
   }	
 
-@media (max-width: 768px) {
-  #navbar {
-    width: 100%;
-  }
+
+   
+
 }
