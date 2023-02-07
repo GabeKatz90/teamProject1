@@ -1,48 +1,72 @@
-// const settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://hotels4.p.rapidapi.com/locations/v3/search?q=london&locale=en_UK&langid=1033&siteid=300000001",
-	"method": "GET",
-	"headers": {
-		"X-RapidAPI-Key": "f73b328648mshb951bb7e2b043b9p1f299ajsnd32e56f7470f",
-		"X-RapidAPI-Host": "hotels4.p.rapidapi.com"
-	}
+// Display date
+var currentDay = moment().format("dddd, MMMM Do");
+
+function functionDay() {
+$(".current-date").text(currentDay);
 };
 
-$.ajax(settings).done(function (response) {
-	console.log(response);
-});
+// My API Key
+var apiKey1 = '0771c372e9b12d916768d6ec72becb9c';
+var apiKey2 = 'f73b328648mshb951bb7e2b043b9p1f299ajsnd32e56f7470f'
 
-// const settings2 = {
-// 	"async": true,
-// 	"crossDomain": true,
-// 	"url": "https://the-fork-the-spoon.p.rapidapi.com/restaurants/v2/list?queryPlaceValueCityId=461789&pageSize=10&pageNumber=1",
-// 	"method": "GET",
-// 	"headers": {
-// 		"X-RapidAPI-Key": "f73b328648mshb951bb7e2b043b9p1f299ajsnd32e56f7470f",
-// 		"X-RapidAPI-Host": "the-fork-the-spoon.p.rapidapi.com"
-// 	}
-// };
-
-// $.ajax(settings2).done(function (response) {
-// 	console.log(response);
-// });
-// var city = "london"
-// var url = "https://the-fork-the-spoon.p.rapidapi.com/locations/v2/auto-complete?text="+city
+// DOM Elements
+var inputEl = document.querySelector('.input');
+var searchBtnEl = document.querySelector('.search-button');
+var citiesListEl = document.querySelector(".cities-list");
 
 
+// Stores cityName in localStorage
+var cityName = "london,paris,milan";
+// localStorage.getItem('cityNameStore');
 
-// const settings3 = {
-	"async": true,
-	"crossDomain": true,
-	"url": url,
-	"method": "GET",
-	"headers": {
-		"X-RapidAPI-Key": "f73b328648mshb951bb7e2b043b9p1f299ajsnd32e56f7470f",
-		"X-RapidAPI-Host": "the-fork-the-spoon.p.rapidapi.com"
-	}
-};
+// Stores value in localStorage
+function recordCityData() {
+localStorage.setItem('cityNameStore', inputEl.value);
+}
 
-//$.ajax(settings3).done(function (response) {
-	console.log(response);
-});
+// Event Listener upon the click of the search button
+// searchBtnEl.addEventListener('click', getWeather);
+
+searchBtnEl.addEventListener('click', function (e) {
+  e.preventDefault()
+  getWeather(inputEl.value)
+  getFood(inputEl.value)
+  getHotel(inputEl.value)
+})
+
+// api variables
+// var URLFood = "https://the-fork-the-spoon.p.rapidapi.com/locations/v2/auto-complete?text=" + cityName;
+// var URLHotels = "https://hotels4.p.rapidapi.com/locations/v3/search?q=" + cityName + "locale=en_US&langid=1033&siteid=300000001";
+
+function getWeather(cityName) {
+  var URLWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=metric&appid=" + apiKey1;
+  $.ajax({
+    url: URLWeather,
+    method: "GET"
+  })
+
+    // Adds weather info to page
+    .then(function (response) {
+      $('.city').html("<h2>" + response.name + "</h2>");
+      $('.weather-icon').html("<img src='https://openweathermap.org/img/w/" + response.weather[0].icon + ".png' >");
+      $('.wind').text("Wind Speed: " + response.wind.speed + " MPH");
+      $('.humidity').text("Humidity: " + response.main.humidity + "%");
+      $(".temperature").text("Temperature: " + response.main.temp + " C");
+    });
+}
+
+////
+function getHotel(cityName) {
+  var URLFood = "https://hotels4.p.rapidapi.com/locations/v3/search?q=" + cityName + "locale=en_US&langid=1033&siteid=300000001&appid=" + apiKey2;
+  $.ajax({
+    url: URLFood,
+    method: "GET"
+  })
+
+    // Adds the weather info to page
+    .then(function (response) {
+      $(response)
+    });
+}
+
+
