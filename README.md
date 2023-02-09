@@ -1,9 +1,10 @@
-Projects are extremely important on your journey to becoming a front-end web developer. As you get further along in the boot camp, you’ll find opportunities to apply for web developer roles. Among the first requirements you’ll need to even get an interview are high-quality deployed examples of your work featured in your portfolio.
+Project 1: 
 
-Project 1: Interactive Front-End Application
+Interactive Front-End Application
 This project will be a centerpiece for your portfolio and your first opportunity to show employers your collaborative skills and coding abilities. Employers want to see what you can do, but they also want to see how you work with other developers. The more examples of deployed collaborative work you have in your portfolio, the more likely you are to get an interview and a job. One of the requirements for this project is that you add it to your portfolio.
 
-Project Requirements
+Project Requirements:
+
 With your team, you'll conceive and execute a design that solves a real-world problem by integrating data received from multiple server-side API requests. You'll also learn about agile development methodologies to help you work collaboratively. You'll implement feature and bug fixes using Git branch workflow and pull requests.
 
 You'll write your own user stories and acceptance criteria in GitHub Issues to help your team stay on track with the project. Using GitHub Project to track the status of your project tasks will help you understand the benefits of Kanban boards.
